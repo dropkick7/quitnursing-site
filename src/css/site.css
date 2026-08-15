@@ -1,0 +1,244 @@
+/* Quit Nursing — minimalist site styles
+   Paper + ink + a single restrained accent. Type carries the personality;
+   everything else stays quiet. */
+
+:root {
+  --paper: #faf9f7;
+  --ink: #16181a;
+  --ink-soft: #5b5f63;
+  --accent: #3d5a80;   /* muted slate blue — the one color decision */
+  --line: #e5e3df;
+
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.site-logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin-left: 1.75rem;
+  font-size: 0.9rem;
+}
+
+.site-nav a:hover { color: var(--accent); }
+
+/* Main shell */
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 5rem;
+}
+
+/* Hero image — the one deliberate visual anchor on the homepage/blog index.
+   Quiet by design: no border, no shadow, no rounded corners, generous
+   breathing room below before the heading starts. */
+.hero-image {
+  margin: 0 -1.5rem 3rem;
+}
+
+.hero-image img {
+  width: 100%;
+  max-height: 46vh;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .hero-image { margin: 0 0 3.5rem; }
+}
+
+/* Featured image on a single post */
+.post-image {
+  margin: 0 -1.5rem 2rem;
+}
+
+.post-image img {
+  width: 100%;
+  max-height: 55vh;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .post-image { margin: 0 0 2.5rem; }
+}
+
+/* Small thumbnail in the blog listing rows */
+.post-row-thumb {
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  overflow: hidden;
+}
+
+.post-row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 3rem;
+}
+
+/* Blog listing — a plain, hairline-divided list, no cards */
+.post-list {
+  margin-top: 2.5rem;
+}
+
+.post-row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-list a.post-row:last-child { border-bottom: 1px solid var(--line); }
+
+.post-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.post-row time {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.post-row-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.post-row:hover .post-row-title { color: var(--accent); }
+
+.post-row-excerpt {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* Single post */
+.post-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.post-body { font-size: 1.05rem; margin-top: 2rem; }
+.post-body p { margin: 0 0 1.3rem; }
+.post-body h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 2.5rem 0 1rem;
+}
+.post-body blockquote {
+  border-left: 2px solid var(--accent);
+  margin: 1.75rem 0;
+  padding-left: 1.25rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.post-body a { text-decoration-color: var(--line); }
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 3rem 0 2.5rem;
+}
+
+.comments-heading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover { color: var(--accent); }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 3rem 1rem 4rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.site-footer a { color: var(--ink-soft); }
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.85rem; }
+  .post-row { flex-direction: column; gap: 0.4rem; }
+  .post-row time { min-width: 0; }
+}

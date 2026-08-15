@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# This makes the "Publish" button in the admin UI actually
+# create a commit that Netlify then builds and deploys.
+publish_mode: simple
+
+media_folder: "src/static/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "src/blog/posts"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "One or two sentences shown on the blog index. Optional — auto-generated from the post if left blank." }
+      - { label: "Featured Image", name: "image", widget: "image", required: false, hint: "Shows full-width at the top of the post and as a thumbnail on the blog list. Optional." }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: ["posts"]
+        hint: "Keep 'posts' as the first tag — it's required for the post to show up in the blog list."
+      - { label: "Body", name: "body", widget: "markdown" }
+    editor:
+      preview: true

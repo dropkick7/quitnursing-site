@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}{% if title %} · {% endif %}Quit Nursing</title>
+  <meta name="description" content="{{ description or 'When can a nurse quit? A FIRE calculator and journey for nurses pursuing financial independence.' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="site-logo">Quit Nursing</a>
+    <nav class="site-nav">
+      <a href="/">Calculator</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    {% if showHero and (image or site.heroImage) %}
+    <div class="hero-image">
+      <img src="{{ image or site.heroImage }}" alt="{{ heroAlt or site.heroAlt or '' }}">
+    </div>
+    {% endif %}
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <p>Quit Nursing — not financial advice. See <a href="/#disclaimer">disclaimer</a>.</p>
+  </footer>
+</body>
+</html>

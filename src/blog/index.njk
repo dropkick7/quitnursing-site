@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Blog
+description: Notes from a nurse's journey to financial independence.
+showHero: true
+---
+<section class="blog-index">
+  <h1>The Blog</h1>
+  <p class="lede">Notes from the floor and from the spreadsheet — one nurse's real path to FI.</p>
+
+  <div class="post-list">
+    {% for post in collections.posts %}
+    <a class="post-row" href="{{ post.url }}">
+      {% if post.data.image %}
+      <span class="post-row-thumb">
+        <img src="{{ post.data.image }}" alt="">
+      </span>
+      {% endif %}
+      <span class="post-row-main">
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+        <span class="post-row-title">{{ post.data.title }}</span>
+        <span class="post-row-excerpt">{{ post.data.excerpt or (post.templateContent | excerpt(140)) }}</span>
+      </span>
+    </a>
+    {% else %}
+    <p>First post is coming soon.</p>
+    {% endfor %}
+  </div>
+</section>

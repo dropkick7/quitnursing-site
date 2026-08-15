@@ -1,0 +1,44 @@
+---
+layout: base.njk
+---
+<article class="post">
+  {% if image %}
+  <div class="post-image">
+    <img src="{{ image }}" alt="">
+  </div>
+  {% endif %}
+
+  <p class="post-eyebrow">
+    <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+    {% if tags %}{% for tag in tags %}{% if tag != "posts" %} · {{ tag }}{% endif %}{% endfor %}{% endif %}
+  </p>
+
+  <h1>{{ title }}</h1>
+
+  <div class="post-body">
+    {{ content | safe }}
+  </div>
+</article>
+
+<hr class="rule">
+
+<section class="comments">
+  <h2 class="comments-heading">Notes</h2>
+  <script src="https://giscus.app/client.js"
+    data-repo="YOUR_GITHUB_USERNAME/quitnursing-site"
+    data-repo-id="YOUR_REPO_ID"
+    data-category="Comments"
+    data-category-id="YOUR_CATEGORY_ID"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="noborder_light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+</section>
+
+<p><a href="/blog/" class="back-link">&larr; All posts</a></p>
