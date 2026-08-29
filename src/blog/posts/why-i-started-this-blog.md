@@ -13,6 +13,8 @@ Single. Female. Nurse. 40 Years Old. Dog. Living in the San Francisco Bay Area.
 
 Asking myself when can I quit nursing? 
 
+More specifically, how can I get out of the grind? Go back to school? I hear psych NPs are making some serious dough. Or leave the hospital? Nurses on Tik tok are declaring happiness from "ditching the bedside" in exchange for administration/remote work. Invent some clinical technology that makes me millions. I need a plan.
+
 Enter the FIRE (Financial Independence Retire Early) movement.  I read up on it.  At first glance, it seemed to be about a super frugal young tech dudes that end up becoming millionaires by 40.  That's not me.  And to be honest, it was a little bit of a turn off.  But I read on and what I've found has inspired me.
 
 I'm starting much later in life than the star children of FIRE, but I'm determined to quit nursing and be financially independence *before* 67 years old (what the social security administration website calls "[Full (normal) Retirement Age](https://www.ssa.gov/benefits/retirement/planner/agereduction.html)"). 
