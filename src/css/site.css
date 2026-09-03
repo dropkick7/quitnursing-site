@@ -67,8 +67,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 
 /* Hero, headline text is baked into the image itself */
 .hero-image {
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .hero-image img {
