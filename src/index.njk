@@ -1,20 +1,43 @@
 ---
 layout: base.njk
-title: When can you quit?
-description: A FIRE calculator built for nurses — figure out your number and your date.
+title: Quit Nursing
+description: Notes on nursing, money, and financial independence.
 showHero: true
 ---
-<section class="home-hero">
-  <h1>When can a nurse quit?</h1>
-  <p class="lede">A calculator for figuring out your FIRE number — built for nurses starting later, not earlier.</p>
+<div class="page-columns">
+  <div class="main-column">
+    <div class="article-list">
+      {% for post in collections.posts %}
+      <a class="article-row" href="{{ post.url }}">
+        <span class="article-thumb">
+          {% if post.data.image %}<img src="{{ post.data.image }}" alt="">{% endif %}
+        </span>
+        <span class="article-body">
+          <span class="article-date">{{ post.date | readableDate }}</span>
+          <span class="article-title">{{ post.data.title }}</span>
+          <span class="article-excerpt">{{ post.data.excerpt or (post.templateContent | excerpt(140)) }}</span>
+        </span>
+      </a>
+      {% else %}
+      <p>First post is coming soon.</p>
+      {% endfor %}
+    </div>
+    <p class="list-footer">more writing soon</p>
+  </div>
 
-  <p style="color: var(--ink-soft); font-size: 0.95rem;">
-    The calculator is being rebuilt — check back soon, or
-    <a href="/blog/">read the blog</a> in the meantime.
-  </p>
-
-  <p id="disclaimer" style="color: var(--ink-soft); font-size: 0.85rem; margin-top: 3rem;">
-    This site is for educational purposes only and does not constitute financial advice.
-    Projections are simplified and do not model taxes, pensions, or Social Security.
-  </p>
-</section>
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <span class="sidebar-label">About</span>
+      <p class="sidebar-text">A nurse in her 40s, later to FIRE than most, figuring out the math for a work optional life.</p>
+      <a href="/start-here/" class="sidebar-link">more about me &rarr;</a>
+    </div>
+    <div class="sidebar-box sidebar-stats">
+      <span class="sidebar-label">Years to go</span>
+      <span class="stat-number">{{ site.yearsToGo }}</span>
+      <div class="stat-divider"></div>
+      <span class="sidebar-label">Shifts to work</span>
+      <span class="stat-number">{{ site.shiftsToWork }}</span>
+      <span class="stat-updated">updated {{ site.statsUpdated }}</span>
+    </div>
+  </aside>
+</div>
