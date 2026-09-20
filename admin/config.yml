@@ -46,6 +46,7 @@ collections:
     slug: "{{slug}}"
     format: "frontmatter"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "One or two sentences shown on the blog index. Optional — auto-generated from the post if left blank." }
