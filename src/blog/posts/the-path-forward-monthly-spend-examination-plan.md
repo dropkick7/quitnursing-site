@@ -1,4 +1,5 @@
 ---
+layout: post.njk
 title: "The Path Forward: Monthly Spend Examination Plan"
 date: 2026-09-19T06:13:00.000-07:00
 excerpt: Living paycheck to paycheck isn't working. I'm realizing I need to
