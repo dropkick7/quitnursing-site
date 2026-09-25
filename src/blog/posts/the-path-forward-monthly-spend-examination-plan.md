@@ -1,9 +1,9 @@
 ---
 layout: post.njk
-title: "The Path Forward: Monthly Spend Examination Plan"
+title: I Was Picking Up Extra Shifts Just to Pay My Bills. Here's My Plan
 date: 2026-09-19T06:13:00.000-07:00
-excerpt: Living paycheck to paycheck isn't working. I'm realizing I need to
-  examine monthly spend categories
+excerpt: My budget looked reasonable, but I was working extra shifts to cover
+  it. So I'm examining every spending category, one post at a time.
 image: /images/pexels-zed-can77-1196104353-28399007.jpg
 tags:
   - posts
@@ -16,23 +16,25 @@ I made a list of my basic big spend categories and have decided to go line by li
 
 Here are my categories:
 
-1. Mortgage
-2. HOA
-3. Insurance & Property Tax
-4. Utilities (gas and electric)
-5. Internet
-6. Phone
-7. Dog
-8. Subscriptions
-9. Groceries
-10. Auto Maintenance
-11. Auto Insurance
-12. Auto Gas
-13. Gym
-14. Skin/Hair
-15. Shopping
-16. Side Projects/Hobbies
+1. Mortgage $2,127
+2. HOA $596
+3. Insurance & Property Tax $655
+4. Utilities (gas and electric) $77
+5. Internet $50
+6. Phone $55
+7. Dog $900
+8. Subscriptions $145
+9. Groceries $727
+10. Dinning Out/Entertainment $308
+11. Auto Maintenance $345
+12. Auto Insurance $115
+13. Auto Gas $241
+14. Gym $56
+15. Skin/Hair $558
+16. Shopping $446
+17. Side Projects/Hobbies $
+18. Misc
 
-It's a long list but know that I'm committed to this budget examination, I feel better.  Having a plan and moving forward step by step down this new path feels better than being stuck with a budget that was unsustainable.
+It's a long list, but now that I've committed to going through it, I feel better. Having a plan and moving forward step by step down this new path feels better than being stuck with a budget that was unsustainable.
 
 I think I'll start with something easy like my phone bill.  Stay tuned!
