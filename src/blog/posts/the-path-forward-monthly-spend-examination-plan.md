@@ -19,9 +19,9 @@ My first goal is to eliminate the need to pick up extra shifts to cover expenses
 
 I made a list of my basic big spend categories and have decided to go line by line and examine what I can change.
 
-Here are my categories:
+Here what I spend monthly, averaged over past six months. 
 
-| Category | Monthly |
+|Category |Monthly |
 |---|---|
 | Mortgage | $2,127 |
 | HOA | $597 |
