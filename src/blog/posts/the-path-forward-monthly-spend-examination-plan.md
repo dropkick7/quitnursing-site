@@ -7,8 +7,13 @@ excerpt: My budget looked reasonable, but I was working extra shifts to cover
 image: /images/pexels-zed-can77-1196104353-28399007.jpg
 tags:
   - posts
+  - budget
+  - expense-review
+  - fire
 ---
-On first glance, my budget seemed fine and actually necessary.  Yet I was living paycheck to paycheck and having to pick up extra shifts to cover costs.  When I paused to take stock of all this, I realized I did not like how much I was spending.  
+On first glance, my budget categories seemed fine and actually necessary.  Yet I was living paycheck to paycheck and having to pick up extra shifts to cover costs.  
+
+When I paused to actually take stock of each line item, I realized I did not like how much I was spending.  
 
 My first goal is to eliminate the need to pick up extra shifts to cover expenses.  Second goal is to save more.
 
@@ -16,24 +21,29 @@ I made a list of my basic big spend categories and have decided to go line by li
 
 Here are my categories:
 
-1. Mortgage $2,127
-2. HOA $596
-3. Insurance & Property Tax $655
-4. Utilities (gas and electric) $77
-5. Internet $50
-6. Phone $55
-7. Dog $900
-8. Subscriptions $145
-9. Groceries $727
-10. Dinning Out/Entertainment $308
-11. Auto Maintenance $345
-12. Auto Insurance $115
-13. Auto Gas $241
-14. Gym $56
-15. Skin/Hair $558
-16. Shopping $446
-17. Side Projects/Hobbies $
-18. Misc
+| Category | Monthly |
+|---|---|
+| Mortgage | $2,127 |
+| HOA | $597 |
+| Insurance & Property Tax | $655 |
+| Utilities (gas and electric) | $56 |
+| Internet | $50 |
+| Phone | $56 |
+| Dog | $1,103 |
+| Subscriptions | $85 |
+| Groceries | $728 |
+| Dining Out/Entertainment | $308 |
+| Auto Maintenance | $354 |
+| Auto Insurance | $115 |
+| Auto Gas | $241 |
+| Gym | $56 |
+| Skin/Hair | $558 |
+| Shopping | $438 |
+| Side Projects/Hobbies | $455 |
+| Misc | $606 |
+| **Total** | **$8,588** |
+
+You might be wondering how one person could spend so much on these categories.  You and me both. 
 
 It's a long list, but now that I've committed to going through it, I feel better. Having a plan and moving forward step by step down this new path feels better than being stuck with a budget that was unsustainable.
 
