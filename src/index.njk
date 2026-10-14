@@ -31,13 +31,29 @@ showHero: true
       <p class="sidebar-text">A nurse in her 40s, later to FIRE than most, figuring out the math for a work optional life.</p>
       <a href="/start-here/" class="sidebar-link">more about me &rarr;</a>
     </div>
-    <div class="sidebar-box sidebar-stats">
+    <div class="sidebar-box sidebar-stats" id="countdown" data-quit-date="{{ site.quitDate }}" data-shifts-per-week="{{ site.shiftsPerWeek }}">
       <span class="sidebar-label">Years to go</span>
-      <span class="stat-number">{{ site.yearsToGo }}</span>
+      <span class="stat-number" id="countdown-years">{{ site.yearsToGo }}</span>
       <div class="stat-divider"></div>
       <span class="sidebar-label">Shifts to work</span>
-      <span class="stat-number">{{ site.shiftsToWork }}</span>
-      <span class="stat-updated">updated {{ site.statsUpdated }}</span>
+      <span class="stat-number" id="countdown-shifts">{{ site.shiftsToWork }}</span>
     </div>
   </aside>
 </div>
+
+{% raw %}
+<script>
+(function () {
+  var box = document.getElementById("countdown");
+  if (!box) return;
+  var end = new Date(box.getAttribute("data-quit-date") + "T00:00:00");
+  var perWeek = Number(box.getAttribute("data-shifts-per-week"));
+  var ms = end - new Date();
+  if (isNaN(ms)) return;
+  var years = Math.max(0, Math.round(ms / (365.25 * 864e5)));
+  var shifts = Math.max(0, Math.round(ms / (7 * 864e5) * perWeek));
+  document.getElementById("countdown-years").textContent = years;
+  document.getElementById("countdown-shifts").textContent = shifts.toLocaleString("en-US");
+})();
+</script>
+{% endraw %}

@@ -9,6 +9,7 @@
   --blue: #71899A;
   --blue-dark: #4A7C93;
   --gold: #EDB152;
+  --gold-dark: #B8860B;  /* gold for large text; the lighter gold is too pale to read */
   --sidebar-bg: #F5F9FA;
 
   --font: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -72,14 +73,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 /* Hero, headline text is baked into the image itself */
 .hero-image {
   width: 100%;
-  max-height: 480px;
-  overflow: hidden;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .hero-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
@@ -314,7 +314,6 @@ main > .article-list {
 
 /* ---------------------------------------------------------------
    Quit Calculator (src/calculator.njk)
-   Paste this at the very bottom of site.css.
    --------------------------------------------------------------- */
 .calc {
   max-width: 900px;
@@ -327,33 +326,34 @@ main > .article-list {
 .calc-noscript { color: var(--ink-soft); }
 
 .calc-result {
-  min-height: 15rem;
-  padding: 0.5rem 0 1.5rem;
+  min-height: 10.5rem;
+  padding: 0.25rem 0 1rem;
   border-top: 1px solid var(--gold);
 }
 
 .calc-result p { margin: 0; }
-.calc-kicker { padding-top: 1.25rem; color: var(--ink-soft); font-size: 1.05rem; }
+.calc-kicker { padding-top: 0.9rem; color: var(--ink-soft); font-size: 1rem; }
 .calc-big {
   font-weight: 700;
-  font-size: clamp(4rem, 15vw, 7rem);
+  font-size: clamp(3.25rem, 12vw, 4.75rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
+  color: var(--gold-dark);
 }
-.calc-unit { font-weight: 500; font-size: 1.75rem; line-height: 1.2; }
-.calc-when { margin-top: 0.75rem !important; color: var(--ink-soft); font-size: 1.05rem; }
+.calc-unit { font-weight: 500; font-size: 1.4rem; line-height: 1.2; }
+.calc-when { margin-top: 0.5rem !important; color: var(--ink-soft); font-size: 1rem; }
 
-.calc-fields { display: flex; flex-direction: column; gap: 1.75rem; margin-bottom: 2.5rem; }
-.calc-field { display: flex; flex-direction: column; gap: 0.25rem; }
+.calc-fields { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.75rem; }
+.calc-field { display: flex; flex-direction: column; gap: 0.1rem; }
 .calc-field-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
 }
-.calc-field-head label { font-weight: 500; font-size: 1.1rem; }
-.calc-value { font-weight: 700; font-size: 1.5rem; color: var(--blue-dark); }
-.calc-hint { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+.calc-field-head label { font-weight: 500; font-size: 1rem; }
+.calc-value { font-weight: 700; font-size: 1.25rem; color: var(--blue-dark); }
+.calc-hint { margin: 0; font-size: 0.875rem; color: var(--ink-soft); }
 
 .calc input[type="range"] {
   width: 100%;
@@ -364,7 +364,7 @@ main > .article-list {
 .calc input[type="range"]:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
 
 .calc-heading {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.6rem;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -373,33 +373,67 @@ main > .article-list {
 }
 
 .calc-other {
-  padding-top: 1.25rem;
-  margin-bottom: 2.5rem;
+  padding-top: 0.9rem;
+  margin-bottom: 1.75rem;
   border-top: 1px solid var(--gold);
 }
 .calc-other-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 .calc-other-grid p { margin: 0; }
-.calc-other-num { font-weight: 700; font-size: 2.25rem; line-height: 1.2; }
+.calc-other-num { font-weight: 700; font-size: 1.9rem; line-height: 1.2; color: var(--gold-dark); }
 .calc-other-label { color: var(--ink-soft); }
 
 .calc-math {
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--gold);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 }
-.calc-math .calc-heading { margin: 0; }
-
-.calc-steps { margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
-.calc-steps > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; }
-.calc-steps dt { font-weight: 700; }
-.calc-steps dd { margin: 0; color: var(--ink-soft); line-height: 1.5; }
-
-.calc-fineprint { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
-.calc-disclaimer { margin-top: 3rem; font-size: 0.85rem; color: var(--ink-soft); }
+.calc-math p { margin: 0 0 0.7rem; color: var(--ink-soft); line-height: 1.5; }
+.calc-math .calc-disclaimer { margin-bottom: 0; font-size: 0.875rem; }
 
 @media (max-width: 480px) {
-  .calc-other-num { font-size: 1.75rem; }
-  .calc-steps > div { grid-template-columns: 1fr; gap: 0.1rem; }
+  .calc-other-num { font-size: 1.5rem; }
+}
+
+/* ---------------------------------------------------------------
+   Recs (src/recs.njk)
+   --------------------------------------------------------------- */
+.recs {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+
+.recs > * { max-width: 680px; }
+
+.rec {
+  padding: 1.4rem 0 1.5rem;
+  border-top: 1px solid var(--gold);
+}
+.rec:last-child { border-bottom: 1px solid var(--gold); }
+
+.rec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+}
+.rec-name { margin: 0; font-size: 1.35rem; font-weight: 700; }
+.rec-tag {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+.rec p { margin: 0.6rem 0 0; }
+.rec a { color: var(--blue-dark); text-decoration: underline; }
+.rec-name a { font-weight: 700; }
+.recs-note {
+  max-width: 900px;
+  margin: -1rem auto 2rem;
+  padding: 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
 }
