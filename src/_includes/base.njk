@@ -40,5 +40,26 @@
   <footer class="site-footer">
     <p>Quit Nursing. Not financial advice. See <a href="/calculator/#disclaimer">disclaimer</a>.</p>
   </footer>
+
+  {# Links in the page content and footer open in a new tab, so readers never lose
+     their place. The logo, top menu and "back" links stay in the same tab. #}
+  {% raw %}
+  <script>
+  (function () {
+    var links = document.querySelectorAll("main a[href], .site-footer a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = a.getAttribute("href");
+      if (!href || href.charAt(0) === "#") continue;
+      if (/^(mailto:|tel:|javascript:)/i.test(href)) continue;
+      if (a.classList.contains("back-link") || a.hasAttribute("target")) continue;
+      a.setAttribute("target", "_blank");
+      var rel = (a.getAttribute("rel") || "").split(/\s+/).filter(Boolean);
+      if (rel.indexOf("noopener") === -1) rel.push("noopener");
+      a.setAttribute("rel", rel.join(" "));
+    }
+  })();
+  </script>
+  {% endraw %}
 </body>
 </html>
