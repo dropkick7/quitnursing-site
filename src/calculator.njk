@@ -1,13 +1,217 @@
 ---
 layout: base.njk
 title: Quit Calculator
-description: A FIRE calculator built for nurses. Figure out your number and your date.
+description: When can you quit nursing? Three sliders, one very honest number.
 permalink: /calculator/
 ---
 <h1>The Quit Calculator</h1>
-<p class="page-lede">A calculator for figuring out your FIRE number, built for nurses starting later, not earlier.</p>
-<p style="color: var(--ink-soft); font-size: 0.95rem;">Still being built. Check back soon.</p>
-<p id="disclaimer" style="color: var(--ink-soft); font-size: 0.85rem; margin-top: 3rem;">
-  This site is for educational purposes only and does not constitute financial advice.
-  Projections are simplified and do not model taxes, pensions, or Social Security.
-</p>
+<p class="page-lede">When can you quit nursing? Three sliders, one very honest number.</p>
+
+<div class="calc">
+
+  <noscript><p class="calc-noscript">The calculator needs JavaScript to run. Nothing is saved or sent anywhere.</p></noscript>
+
+  <section class="calc-result" role="status" aria-live="polite" aria-atomic="true">
+    <div id="calc-reachable">
+      <p class="calc-kicker">You've got about</p>
+      <p class="calc-big" id="calc-shifts">&mdash;</p>
+      <p class="calc-unit">shifts to go</p>
+      <p class="calc-when" id="calc-when"></p>
+    </div>
+    <div id="calc-unreachable" hidden>
+      <p class="calc-kicker">You've got about</p>
+      <p class="calc-big">?</p>
+      <p class="calc-unit">shifts to go</p>
+      <p class="calc-when">Not on this path yet. Nudge a slider.</p>
+    </div>
+  </section>
+
+  <div class="calc-fields">
+    <div class="calc-field">
+      <div class="calc-field-head">
+        <label for="saved">Saved so far</label>
+        <span class="calc-value" id="saved-out"></span>
+      </div>
+      <p class="calc-hint">401(k), brokerage, HSA, savings. Not your house.</p>
+      <input id="saved" type="range" min="0" max="1000000" step="5000" value="150000">
+    </div>
+
+    <div class="calc-field">
+      <div class="calc-field-head">
+        <label for="monthly">Saving each month</label>
+        <span class="calc-value" id="monthly-out"></span>
+      </div>
+      <p class="calc-hint">What you stash away, not what you earn.</p>
+      <input id="monthly" type="range" min="0" max="8000" step="100" value="3500">
+    </div>
+
+    <div class="calc-field">
+      <div class="calc-field-head">
+        <label for="spend">Spending once you've quit</label>
+        <span class="calc-value" id="spend-out"></span>
+      </div>
+      <p class="calc-hint">Per month, in today's dollars.</p>
+      <input id="spend" type="range" min="1500" max="9000" step="100" value="3500">
+    </div>
+  </div>
+
+  <section class="calc-other" id="calc-other">
+    <h2 class="calc-heading">In other words, about</h2>
+    <div class="calc-other-grid">
+      <div>
+        <p class="calc-other-num" id="calc-sundays">&mdash;</p>
+        <p class="calc-other-label" id="calc-sundays-label">Sundays</p>
+      </div>
+      <div>
+        <p class="calc-other-num" id="calc-moons">&mdash;</p>
+        <p class="calc-other-label" id="calc-moons-label">full moons</p>
+      </div>
+      <div>
+        <p class="calc-other-num" id="calc-flu">&mdash;</p>
+        <p class="calc-other-label" id="calc-flu-label">flu seasons</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-math">
+    <h2 class="calc-heading">How the math works</h2>
+
+    <div class="calc-field">
+      <div class="calc-field-head">
+        <label for="perWeek">Shifts you work per week</label>
+        <span class="calc-value" id="perWeek-out"></span>
+      </div>
+      <p class="calc-hint">This turns months into shifts. Three 12s is the starting point; set it to your real schedule.</p>
+      <input id="perWeek" type="range" min="1" max="6" step="1" value="3">
+    </div>
+
+    <dl class="calc-steps">
+      <div>
+        <dt>Your number</dt>
+        <dd id="calc-step1"></dd>
+      </div>
+      <div>
+        <dt>Growth</dt>
+        <dd id="calc-step2"></dd>
+      </div>
+      <div>
+        <dt>Time</dt>
+        <dd>We count month by month until what you've saved, plus what you add each month, reaches your number.</dd>
+      </div>
+      <div>
+        <dt>Shifts</dt>
+        <dd id="calc-step4"></dd>
+      </div>
+    </dl>
+
+    <p class="calc-fineprint">The math is approximate. Your future self is not under oath.</p>
+  </section>
+
+  <p id="disclaimer" class="calc-disclaimer">
+    This site is for educational purposes only and does not constitute financial advice.
+    Projections are simplified and do not model taxes, health insurance, pensions, or Social Security.
+  </p>
+
+</div>
+
+{% raw %}
+<script>
+(function () {
+  // Assumptions: change these two numbers to change the whole calculator.
+  var REAL_RETURN = 0.05;      // yearly growth after inflation
+  var NUMBER_MULTIPLE = 25;    // the 4% rule of thumb: 25x a year of spending
+  var MAX_MONTHS = 960;        // 80 years; past this we say "not on this path"
+
+  function $(id) { return document.getElementById(id); }
+
+  function money(n) {
+    return "$" + Math.round(n).toLocaleString("en-US");
+  }
+
+  function plural(n, one, many) {
+    return n === 1 ? one : many;
+  }
+
+  // Months until saved + monthly contributions (growing at the monthly rate)
+  // reach the target. Returns null if it never gets there.
+  function monthsToTarget(saved, monthly, target) {
+    if (saved >= target) return 0;
+    var r = Math.pow(1 + REAL_RETURN, 1 / 12) - 1;
+    var k = monthly / r;
+    var top = target + k;
+    var bottom = saved + k;
+    if (bottom <= 0 || top <= bottom) return null;
+    var months = Math.ceil(Math.log(top / bottom) / Math.log(1 + r));
+    return months > MAX_MONTHS ? null : months;
+  }
+
+  function update() {
+    var saved = Number($("saved").value);
+    var monthly = Number($("monthly").value);
+    var spend = Number($("spend").value);
+    var perWeek = Number($("perWeek").value);
+
+    $("saved-out").textContent = money(saved);
+    $("monthly-out").textContent = money(monthly);
+    $("spend-out").textContent = money(spend);
+    $("perWeek-out").textContent = perWeek;
+    $("saved").setAttribute("aria-valuetext", money(saved));
+    $("monthly").setAttribute("aria-valuetext", money(monthly) + " a month");
+    $("spend").setAttribute("aria-valuetext", money(spend) + " a month");
+
+    var target = spend * 12 * NUMBER_MULTIPLE;
+    var months = monthsToTarget(saved, monthly, target);
+    var reachable = months !== null;
+
+    $("calc-reachable").hidden = !reachable;
+    $("calc-unreachable").hidden = reachable;
+    $("calc-other").hidden = !reachable;
+
+    $("calc-step1").textContent =
+      money(target) + " is 25 times a year of your spending (" + money(spend * 12) +
+      "). It's the classic 4% rule of thumb: the amount a nest egg can pay out about 4% of each year.";
+    $("calc-step2").textContent =
+      "Your savings grow " + Math.round(REAL_RETURN * 100) +
+      "% a year after inflation, so every dollar on this page is in today's dollars.";
+    $("calc-step4").textContent =
+      "Months turn into weeks (about 4.3 a month), and weeks turn into shifts at " +
+      perWeek + " per week.";
+
+    if (!reachable) return;
+
+    var weeks = months * 52 / 12;
+    var shifts = Math.round(weeks * perWeek);
+    $("calc-shifts").textContent = shifts.toLocaleString("en-US");
+
+    if (months === 0) {
+      $("calc-when").textContent = "That would be right now.";
+    } else {
+      var d = new Date();
+      d.setMonth(d.getMonth() + months);
+      var when = d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+      var years = Math.floor(months / 12);
+      var rem = months % 12;
+      var parts = [];
+      if (years > 0) parts.push(years + plural(years, " year", " years"));
+      if (rem > 0) parts.push(rem + plural(rem, " month", " months"));
+      $("calc-when").textContent = "Around " + when + " \u00b7 " + parts.join(", ") + " from now";
+    }
+
+    var sundays = Math.round(weeks);
+    var moons = Math.round(months * 30.44 / 29.53);
+    var flu = Math.ceil(months / 12);
+    $("calc-sundays").textContent = sundays.toLocaleString("en-US");
+    $("calc-sundays-label").textContent = plural(sundays, "Sunday", "Sundays");
+    $("calc-moons").textContent = moons.toLocaleString("en-US");
+    $("calc-moons-label").textContent = plural(moons, "full moon", "full moons");
+    $("calc-flu").textContent = flu;
+    $("calc-flu-label").textContent = plural(flu, "flu season", "flu seasons");
+  }
+
+  ["saved", "monthly", "spend", "perWeek"].forEach(function (id) {
+    $(id).addEventListener("input", update);
+  });
+  update();
+})();
+</script>
+{% endraw %}
