@@ -437,3 +437,32 @@ main > .article-list {
   color: var(--ink-soft);
   line-height: 1.6;
 }
+/* ---------------------------------------------------------------
+   Mobile fixes: paste at the very end of site.css
+   --------------------------------------------------------------- */
+
+/* Header: stack the logo above the nav so they stop colliding */
+@media (max-width: 720px) {
+  .site-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .site-nav { gap: 0.4rem 1.1rem; }
+}
+
+/* Hero: zoom in on phones so the baked-in tagline is bigger.
+   17:10 crops the right side only (about 29% of the image), and the
+   headline ends roughly two-thirds across, so it stays in frame.
+   Use 3 / 2 for more zoom, but check that "NURSING." isn't clipped. */
+@media (max-width: 600px) {
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 17 / 10;
+    object-fit: cover;
+    object-position: left center;
+  }
+}
