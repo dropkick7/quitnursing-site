@@ -20,6 +20,25 @@ layout: base.njk
   </div>
 </article>
 
+{% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.posts | getNextCollectionItem(page) %}
+{% if previousPost or nextPost %}
+<nav class="post-nav" aria-label="More posts">
+  {% if previousPost %}
+  <a href="{{ previousPost.url }}" class="post-nav-prev">
+    <span class="post-nav-label">&larr; Previous post</span>
+    <span class="post-nav-title">{{ previousPost.data.title }}</span>
+  </a>
+  {% endif %}
+  {% if nextPost %}
+  <a href="{{ nextPost.url }}" class="post-nav-next">
+    <span class="post-nav-label">Next post &rarr;</span>
+    <span class="post-nav-title">{{ nextPost.data.title }}</span>
+  </a>
+  {% endif %}
+</nav>
+{% endif %}
+
 <hr class="rule">
 
 <section class="comments">
