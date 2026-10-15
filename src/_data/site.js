@@ -9,6 +9,7 @@ module.exports = {
   // counts down on its own.
   quitDate: "2041-08-28",   // target quit date, YYYY-MM-DD
   shiftsPerWeek: 3,         // average shifts you work per week until then
+  year: new Date().getFullYear(),
 
   // Starting values written into the page at build time. The browser
   // recalculates them from today's date when the page loads.

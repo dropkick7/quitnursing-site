@@ -43,14 +43,15 @@ layout: base.njk
 
 <section class="comments">
   <h2 class="comments-heading">Notes</h2>
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="baee76fd-cd31-470d-a459-0d8998f15122"
-data-page-id="{{ page.url }}"
-data-page-url="{{ page.url }}"
-data-page-title="{{ title }}"
+<div
+  id="echothread"
+  data-shortname="quit-nursing"
+  data-api-key="_4zP9fJcpflCwfd5GDEYEZkgfJKc2P2NPhEM2vqBWKY"
+  data-identifier="{{ page.url }}"
+  data-page-url="https://quitnursing.com{{ page.url }}"
+  data-accent-color="#4A7C93"
 ></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<script src="https://cdn.echothread.io/widget.js" async></script>
 
 </section>
 
