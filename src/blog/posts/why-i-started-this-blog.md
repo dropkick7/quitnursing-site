@@ -9,7 +9,7 @@ tags:
   - posts
   - journey
 ---
-Single. Female. Nurse. 40 Years Old. Dog. Living in the San Francisco Bay Area.  
+Single. Female. Nurse. 40. Dog. Living in the San Francisco Bay Area.  
 
 Asking myself when can I quit nursing? 
 

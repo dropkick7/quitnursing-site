@@ -20,8 +20,8 @@ layout: base.njk
   </div>
 </article>
 
-{% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-{% set nextPost = collections.posts | getNextCollectionItem(page) %}
+{% set previousPost = collections.posts | getNextCollectionItem(page) %}
+{% set nextPost = collections.posts | getPreviousCollectionItem(page) %}
 {% if previousPost or nextPost %}
 <nav class="post-nav" aria-label="More posts">
   {% if previousPost %}
