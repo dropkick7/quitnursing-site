@@ -509,3 +509,39 @@ main > .article-list {
   .post-nav a { max-width: none; }
   .post-nav-next { margin-left: 0; text-align: left; }
 }
+/* ---------------------------------------------------------------
+   Text pages like Disclosure (src/disclosure.njk)
+   Same column as the page title, with a readable line length
+   --------------------------------------------------------------- */
+.page-note {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+
+.page-note > * { max-width: 680px; }
+
+.page-note h2 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.page-note p { margin: 0 0 1.1rem; }
+.page-note ul { margin: 0 0 1.3rem; padding-left: 1.25rem; }
+.page-note li { margin-bottom: 0.5rem; }
+
+/* Links inside writing: blue and underlined so they are obvious */
+.post-body a,
+.page-note a,
+.page-lede a {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-body a:hover,
+.page-note a:hover,
+.page-lede a:hover {
+  color: var(--ink);
+}
