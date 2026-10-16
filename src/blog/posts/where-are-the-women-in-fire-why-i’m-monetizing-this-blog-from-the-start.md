@@ -5,6 +5,7 @@ date: 2026-09-30T16:58:00.000-07:00
 excerpt: Reading FIRE blogs, I found plenty of men before I found women. One
   woman’s unapologetic approach to earning from her blog changed how I think
   about mine, so here’s how I’m monetizing this one.
+image: /images/pexels-avneet-kaur-669191817-25473149.jpg
 tags:
   - posts
   - income
@@ -27,7 +28,9 @@ I love how unapologetically she monetized her work. I’ve read a lot of blogs w
 
 **What this means for this blog**
 
-In that spirit, I’m going to follow in their footsteps and be upfront about monetizing this blog from the beginning. Here’s how I’m approaching it: I’ll only use affiliate links for things I actually use and recommend, and I’ll never encourage you to buy something you don’t need. Any post with affiliate links will say so at the top, and you can read the details on my [Disclosure page](https://quitnursing.com/disclosure/). (Writing a disclosure page was step 1!)
+In that spirit, I’m going to follow in their footsteps and be upfront about monetizing this blog from the beginning. Ideally, I eventually earn enough to break even on this blog. 
+
+Here’s how I’m approaching it: I’ll only use referral or affiliate links for things I actually use and recommend, and I’ll never encourage you to buy something you don’t need. Any post with affiliate links will say so at the top, and you can read the details on my [Disclosure page](https://quitnursing.com/disclosure/). (Writing a disclosure page was step 1!)
 
 **Learning as I go**
 
