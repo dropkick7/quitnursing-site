@@ -14,7 +14,7 @@ tags:
 ---
 # **Sonic Fiber vs. T-Mobile Home Internet: What Switching Cost Me**
 
-*This post contains affiliate links. If you buy or sign up through them, I may earn a small commission at no cost to you. See[ how this site is supported](https://claude.ai/chat/1d6d7571-b269-42bf-94af-0696b423a634#).*
+*This post contains affiliate links. If you buy or sign up through them, I may earn a small commission at no cost to you. See[ why I decided to monitize this blog.](https://quitnursing.com/blog/posts/where-are-the-women-in-fire-why-i%E2%80%99m-monetizing-this-blog-from-the-start/)*
 
 The next thing I decided to tackle in my [spending audit plan](https://quitnursing.com/blog/posts/the-path-forward-monthly-spend-examination-plan/) was my internet. It seemed like a natural next step after looking at my [phone bill](https://quitnursing.com/blog/posts/i-cut-my-phone-bill-from-55-to-25-a-month-with-mint-mobile/).
 
